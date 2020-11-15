@@ -1,0 +1,63 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/common/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/common/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css"/>
+<link rel="stylesheet" type="text/css" href="/common/css/bootstrap.min.css"/>
+</head>
+<body>
+   
+    <div class="col-lg-2 div-left"><!--栅格系统,占用2/12的屏幕-->
+        <div>
+                 欢迎用户：<b id="main_b_username"></b> 
+        </div>
+	    <div>
+	        <button type="button" class="btn btn-default btn-lg left-button-1" onclick="window.location.href = 'save'" lable="1">存款</button>
+	    </div>
+	    <div>
+	        <button type="button" class="btn btn-default btn-lg left-button-2" onclick="window.location.href = 'drop'" lable="2">取款</button>
+	    </div>
+	    <div>
+	        <button type="button" class="btn btn-default btn-lg left-button-2" onclick="window.location.href = 'trans'" lable="3">转账</button>
+	    </div>
+	    <div>
+	        <button type="button" class="btn btn-default btn-lg left-button-2" onclick="window.location.href = 'pwd'" lable="4">修改密码</button>
+	    </div>
+    </div>
+	<div class="col-lg-8"><!--占用8/12的空屏幕-->
+	    <div class="center-title" style="margin-left: 325px">
+	        <h1>请选择业务类型</h1>
+	    </div>
+	</div>
+	<div class="col-lg-2 div-right"><!--占用2/12的左部分-->
+	    <div>
+	        <button type="button" class="btn btn-default btn-lg right-button-1" onclick="window.location.href = 'balance'" lable="5">查询余额</button>
+	    </div >
+	    <div>
+	        <button type="button" class="btn btn-default btn-lg right-button-2" onclick="window.location.href = 'log'" lable="6">查询明细</button>
+	    </div>
+<!--	    <div >-->
+<!--	        <button type="button" class="btn btn-default btn-lg right-button-2" lable="7">汇率转换</button>-->
+<!--	    </div>-->
+	    <div >
+	        <button type="button" class="btn btn-default btn-lg right-button-2" onclick="window.location.href = '/'" lable="8">退出系统</button>
+	    </div>
+	</div>
+	<div class="modal fade" id="menuModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	            <div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title" id="myModalLabel">提示信息</h4>
+	            </div>
+	            <div class="modal-body" >信用卡用户不支持货币交易</div>
+	        </div><!-- /.modal-content -->
+	    </div><!-- /.modal -->
+	</div>
+</body>
+</html>

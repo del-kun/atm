@@ -1,0 +1,88 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>转账</title>
+ <script type="text/javascript" src="/common/js/jquery-3.3.1.js"></script>
+    <!--<script type="text/javascript" src="/common/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script> -->
+
+<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="/common/css/bootstrap.min.css"/> -->
+<style>
+    body{
+        background-image: url('../image/foot.png');
+        background-size: 100% 100%;
+        user-select: none;
+    }
+    .info{
+        position:relative;
+        width:600px;
+        height:500px;
+        margin:300px auto;
+    }
+    .transfer-info{
+        width:300px;
+        height:40px;
+        margin:auto;
+    }
+    .info input{
+        width:200px;
+        height:25px;
+    }
+    input:focus{
+        outline:none;
+    }
+    button{
+        width:110px;
+        height:40px;
+        margin-top:200px;
+        border-radius:10px;
+        cursor:pointer;
+    }
+    button:nth-child(2){
+        position:absolute;
+        right:0;
+    }
+</style>
+</head>
+<body>
+    <div class="info">
+        <div class="transfer-info">
+            <label for="" class="cardId">卡号:</label>
+            <input type="text" id="cardId">
+        </div>
+        <div class="transfer-info">
+            <label for="" class="accounts">金额:</label>
+            <input type="text" id="money">
+        </div>
+        <div class="btn">
+            <button class="back" onclick="window.location.href = 'main'">返回首页</button>
+            <button class="confirm" onclick="transfer()">确认</button>
+        </div>
+    </div>
+</body>
+<script>
+    function transfer(){
+        console.log("进来了");
+        $.ajax({
+            url: "/transfer",
+            type: 'post',
+            data:{
+                cardId:$("#cardId").val(),
+                money:$("#money").val()
+            },
+            data_type:"JSON",
+            success: function (data){
+                console.log(data);
+                if (data)
+                    window.alert("转账成功");
+                else
+                    window.alert("转账失败");
+
+                window.location.href = 'main';
+            }
+        });
+
+    }
+</script>
+</html>

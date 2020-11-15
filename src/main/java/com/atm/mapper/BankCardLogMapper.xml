@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atm.mapper.BankCardLogMapper">
+
+    <resultMap id="BaseResultMap" type="com.atm.pojo.BankCardLog">
+        <id property="id" column="id"/>
+        <result property="cardId" column="card_id"/>
+        <result property="enumWay" column="enum_way"/>
+        <result property="money" column="money"/>
+        <result property="time" column="create_time"/>
+    </resultMap>
+    <insert id="insertLog">
+        insert into bank_card_log (card_id,enum_way,money,create_time) values (#{cardId},#{enumWay},#{money},#{time})
+    </insert>
+    <select id="selectLogList" resultType="com.atm.pojo.BankCardLog" resultMap="BaseResultMap">
+        select * from bank_card_log where card_id = #{cardId} order by id desc limit 10
+    </select>
+</mapper>

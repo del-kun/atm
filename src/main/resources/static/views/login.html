@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="/common/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/common/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/login.js"></script>
+<link rel="stylesheet" type="text/css" href="/common/css/bootstrap.min.css"/>
+<link rel="stylesheet" type="text/css" href="/css/common.css">
+</head>
+ <body>
+      <div style="width:500px; margin: 0 auto;">
+        <div style="width: 500px;margin:250px 135px 0px">
+          <h2 >欢迎使用自动存取款机</h2>
+        </div>
+        <form class="form-horizontal"  style="margin-top: 80px">
+          <div class="form-group">
+            <label for="cardId" class="col-sm-2 control-label">账号</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="login_username" placeholder="请输入账号">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password" class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="login_pwd" placeholder="请输入密码">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-8">
+              <button type="button" class="btn btn-default" id="login_bu">登录</button>
+            </div>
+            <!--  
+            <div class=" col-sm-1">
+              <button type="button" class="btn btn-default" onclick="toRegister()">开户</button>
+            </div>
+            -->
+          </div>
+        </form>
+      </div>
+      <div class="modal fade" id="indexModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h4 class="modal-title" id="myModalLabel">提示信息</h4>
+            </div>
+            <div class="modal-body" id="indexMsg"></div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+      </div>
+  </body>
+</html>

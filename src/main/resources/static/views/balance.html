@@ -1,0 +1,65 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>余额</title>
+<script type="text/javascript" src="/common/js/jquery-3.3.1.js"></script>
+    <!-- <script type="text/javascript" src="/common/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script> -->
+
+
+<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="/common/css/bootstrap.min.css"/> -->
+<style>
+    body{
+        background-image: url('../image/foot.png');
+        background-size: 100% 100%;
+        user-select: none;
+    }
+    #content{
+        position:relative;
+        width:200px;
+        height:300px;
+        margin:300px auto 0;
+    }
+    #balance-info{
+        width:200px;
+        height:200px;
+    }
+    .back{
+        position:absolute;
+        left:0;
+        width:110px;
+        height:40px;
+        cursor: pointer;
+    }
+</style>
+</head>
+<body>
+    <div id="content">
+        <div id="balance-info">
+            <p>余额：<span id = "leftMoney" class="left-money"></span></p>
+            <p>信用额度：<span id = "leftlimit" class="quota"></span></p>
+        </div>
+        <div>
+            <button class="back" onclick="window.location.href = 'main'">返回主页</button>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function (){
+        console.log("进来了");
+        $.ajax({
+            url: "/moneyGet",
+            type: 'get',
+            success: function (data){
+                console.log(data);
+                $("#leftMoney").html('');
+                var leftMoney = data.leftMoney;
+                var leftlimit = data.leftlimit;
+                $("#leftMoney").html(leftMoney);
+                $("#leftlimit").html(leftlimit);
+            }
+        });
+    })
+</script>
+</html>

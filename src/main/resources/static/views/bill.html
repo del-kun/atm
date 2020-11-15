@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>账单</title>
+<script type="text/javascript" src="/common/js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="/common/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+<!-- <link rel="stylesheet" type="text/css" href="/css/common.css"/> -->
+<link rel="stylesheet" type="text/css" href="/common/css/bootstrap.min.css"/>
+<style>
+    body{
+        background-image: url('../image/foot.png');
+        background-size: 100% 100%;
+        user-select: none;
+    }
+    #details{
+        position:relative;
+        width:800px;
+        height:550px;
+        margin:200px auto;
+    }
+    table{
+        width:800px;
+        height:400px;
+        border-collapse:collapse;
+        background-color: #fff;
+    }
+    table th{
+        background-color: #EEEEEE;
+    }
+    table .deal-amount{
+        text-align:right;
+    }
+    .back{
+        position:absolute;
+        right:0;
+        width:110px;
+        height:40px;
+        margin-top:30px;
+        cursor:pointer;
+    }
+</style>
+</head>
+<body>
+    <div id="details">
+        <p>显示最近10条交易记录，不支持账单明细查询，详细记录请到本行人工台查询！</p>
+        <table id = "tab" border="1" cellspacing="0" cellpadding="0">
+
+        </table>
+        <div>
+            <button class="back" onclick="window.location.href = 'main'">返回主页</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function (){
+        $.ajax({
+            url: "/getlog",
+            type: 'get',
+            success: function (data){
+                console.log(data);
+                var str = "";
+                for (var r in data.data){
+                    var a = data.data[r].time;
+                    var b = data.data[r].enumWay > 0 ? "存入" : "支出";
+                    var c = data.data[r].money;
+                    console.log(r);
+                    console.log(a);
+                    console.log(b);
+                    console.log(c);
+                    str = "<tr><td>" + a + "</td><td>" + b +"</td><td>" + c  + "</td></tr>";
+                    console.log(str);
+                    $("#tab").append(str);
+                }
+            }
+        });
+    })
+</script>
+</html>

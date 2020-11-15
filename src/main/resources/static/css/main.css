@@ -1,0 +1,39 @@
+.div-left{
+	padding-left:5% !important;
+}
+.div-right{
+    padding-right:5% !important;
+}
+.center-content{/*中心样式*/
+    width:500px;
+    margin: 300px auto 0px;
+}
+.center-title{/*中心文字样式*/
+    width:500px;
+    margin: 300px 250px 50px;
+}
+.left-button-1{/*左键样式,4键时使用*/
+    margin-top: 200px;
+    height: 65px;
+    width: 150px
+}
+.left-button-2{
+    margin-top: 45px;
+    height: 65px;
+    width: 150px
+}
+.right-button-1{/*右键样式,4键时使用*/
+    margin-top: 200px;
+    height: 65px;
+    width: 150px;
+    float:right
+}
+.right-button-2{
+    margin-top: 45px;
+    height: 65px;
+    width: 150px;
+    float:right
+}
+.select-button{/*选择按键样式*/
+    margin: 15px 15px 0px 0px;
+}

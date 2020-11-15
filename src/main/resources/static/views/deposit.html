@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<title>存款</title>
+<script type="text/javascript" src="/common/js/jquery-3.3.1.js"></script>
+    <!-- <script type="text/javascript" src="/common/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script> -->
+
+<link rel="stylesheet" type="text/css" href="/css/common.css"/>
+<!-- <link rel="stylesheet" type="text/css" href="/common/css/bootstrap.min.css"/> -->
+<style>
+    body{
+        background-image: url('../image/foot.png');
+        background-size: 100% 100%;
+        user-select: none;
+    }
+    .amount-money{
+        width:300px;
+        height:100px;
+        margin:300px auto 100px;
+    }
+    .amount{
+        width:200px;
+        height:30px;
+        outline:none;
+    }
+    .btn{
+        text-align:center;
+    }
+    .btn button{
+        width:110px;
+        height:40px;
+        cursor:pointer;
+    }
+    .btn .confirm{
+        margin-left:200px;
+    }
+</style>
+</head>
+<body>
+    <div class="amount-money">
+        <label for="">金额：</label>
+        <input type="text" id= "money" class="amount" placeholder="请输入存款金额">
+    </div>
+    <div class="btn">
+        <button class="back" onclick="window.location.href = 'main'">返回主页</button>
+        <button class="confirm" onclick="save()">确认</button>
+    </div>
+</body>
+
+
+<script>
+    function save(){
+        console.log("进来了");
+        $.ajax({
+            url: "/saveMoney",
+            type: 'post',
+            data:{
+                money:$('#money').val()
+            },
+            data_type:"JSON",
+
+            success: function (data){
+                console.log(data);
+                if (data)
+                    window.alert("存款成功");
+                else
+                    window.alert("存款失败");
+
+                window.location.href = 'main';
+            }
+        });
+
+    }
+</script>
+</html>
